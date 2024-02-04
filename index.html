@@ -1,0 +1,167 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatting Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #efe5e5;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(50, 36, 45, 50);
+        }
+
+        .input-container, #output {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 2px;
+            border: 2px solid #f1f4f8;
+        }
+
+        .input-container input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .format-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .format-buttons button {
+            flex: 0 0 calc(25% - 10px);
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 50px;
+            background-color: #df84a4;
+            color: #0f1314;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .format-buttons button:hover {
+            background-color: #988490;
+        }
+
+        .btn-default {
+    box-shadow: 5px 5px 10px #4c2149;  
+}
+
+        #output {
+            padding: 10px;
+            border-radius: 4px;
+            background-color:white;
+            box-shadow: 0 0 5px rgba(50, 50, 59, 50);
+            margin-bottom: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="input-container">
+        <label for="textInput">Enter Text:</label>
+        <input type="text" id="textInput">
+    </div>
+
+    <div id="output"></div>
+
+    <div class="format-buttons">
+        <button class="btn btn-default" onclick="applyBold()">Bold</button>
+        <button class="btn btn-default" onclick="applyItalic()">Italic</button>
+        <button class="btn btn-default" onclick="changeFontSize()">Font Size</button>
+        <button class="btn btn-default" onclick="changeFontType()">Font Type</button>
+        <button class="btn btn-default" onclick="applyUnderline()">Underline</button>
+        <button class="btn btn-default" onclick="applyBorder()">Border</button>
+        <button class="btn btn-default" onclick="applyTextShadow()">Text Shadow</button>
+        <button class="btn btn-default" onclick="changeLineSpacing()">Line Spacing</button>
+        <button class="btn btn-default" onclick="changeBackgroundColor()">Background Color</button>
+        <button class="btn btn-default" onclick="changeTextColor()">Text Color</button>
+        <button class="btn btn-default" onclick="resetFormatting()">Reset</button>
+    </div>
+</div>
+
+<script>
+    const outputDiv = document.getElementById('output');
+    const textInput = document.getElementById('textInput');
+
+    function applyBold() {
+        outputDiv.style.fontWeight = 'bold';
+    }
+
+    function applyItalic() {
+        outputDiv.style.fontStyle = 'italic';
+    }
+
+    function changeFontSize() {
+        const size = prompt('Enter Font Size (e.g., 16px):');
+        outputDiv.style.fontSize = size;
+    }
+
+    function changeFontType() {
+        const font = prompt('Enter Font Type (e.g., Arial):');
+        outputDiv.style.fontFamily = font;
+    }
+
+    function applyUnderline() {
+        outputDiv.style.textDecoration = 'underline';
+    }
+
+    function applyBorder() {
+        outputDiv.style.border = '1px solid black';
+    }
+
+    function applyTextShadow() {
+        outputDiv.style.textShadow = '2px 2px 5px rgba(0, 0, 0, 0.5)';
+    }
+
+    function changeLineSpacing() {
+        const spacing = prompt('Enter Line Spacing (e.g., 1.5):');
+        outputDiv.style.lineHeight = spacing;
+    }
+
+    function changeBackgroundColor() {
+        const color = prompt('Enter Background Color (e.g., #ffffff):');
+        outputDiv.style.backgroundColor = color;
+    }
+
+    function changeTextColor() {
+        const color = prompt('Enter Text Color (e.g., #000000):');
+        outputDiv.style.color = color;
+    }
+
+    function resetFormatting() {
+        outputDiv.style.fontWeight = 'normal';
+        outputDiv.style.fontStyle = 'normal';
+        outputDiv.style.fontSize = '16px';
+        outputDiv.style.fontFamily = 'Arial, sans-serif';
+        outputDiv.style.textDecoration = 'none';
+        outputDiv.style.border = 'none';
+        outputDiv.style.textShadow = 'none';
+        outputDiv.style.lineHeight = 'normal';
+        outputDiv.style.backgroundColor = 'transparent';
+        outputDiv.style.color = 'black';
+    }
+
+    textInput.addEventListener('input', function() {
+        outputDiv.textContent = textInput.value;
+    });
+</script>
+
+</body>
+</html>
